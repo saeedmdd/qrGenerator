@@ -25,7 +25,11 @@ services:
         depends_on:
             - mysql
     mysql:
-        image: 'mysql/mysql-server:8.0'
+        image: 'docker.iranrepo.ir/mysql/mysql-server:8.0'
+        deploy:
+            resources:
+                limits:
+                    memory: "150M"
         ports:
             - '${FORWARD_DB_PORT:-3306}:3306'
         environment:
